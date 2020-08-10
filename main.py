@@ -97,11 +97,10 @@ class Game:
             self.clock.tick(FPS)
             self.tick_count += 1
             self.events()
-            if self.tick_count % 50 == 0:
-                difference = random.choice(range(0, BASE.get_height()))
+            if self.tick_count % 60 == 0:
+                difference = random.choice(range(0, PIPE.get_height()))
                 self.pipes.add(Pipe(self, 0 - difference))
-                self.pipes.add(
-                    Pipe(self, 800 - PIPE.get_height() - difference))
+                self.pipes.add(Pipe(self, HEIGHT - BASE.get_height()  - difference))
             self.scroll_background(x, BACKGROUND)
             self.draw_base()
             self.update()
