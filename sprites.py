@@ -61,14 +61,14 @@ class Pipe(pg.sprite.Sprite):
        self.pipes = game.pipes
        self.image = PIPE
        self.rect = self.image.get_rect()
-       self.rect.x = WIDTH - 100
+       self.rect.x = WIDTH
        self.rect.y = y
        self.speed = 5
        self.flip_image()
     
     def update(self):
         self.rect.x -= self.speed
-        if self.rect.x < 0:
+        if self.rect.x < 0 - self.image.get_width():
             self.pipes.remove(self)
             self.game.score += 1
             POINT_SOUND.play()
